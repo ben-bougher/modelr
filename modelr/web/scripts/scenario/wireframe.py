@@ -40,19 +40,11 @@ def run_script(args):
     ## Open the image in PIL
     #image = Image.open(buf)
     processed_data = image_segment(args.wireframe)
-    #plt.imshow(processed_data)
+    plt.imshow(processed_data)
     #image = get_figure_data()
     
-    dt = .01
-    t = 1.0 
-    f= 1.
-
-    wave = ricker(t,dt,f)
-
-    seismic = [np.convolve(wave, i, mode='same') for i in np.transpose(processed_data)]
-    plt.imshow(seismic)
     image = get_figure_data()
-    return (image,)
+    return (image,{})
 
 def main():
     parser = ArgumentParser(usage=short_description,
